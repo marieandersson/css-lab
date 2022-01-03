@@ -1,0 +1,94 @@
+@charset 'UTF-8';
+
+@import "node_modules/sanitize.css/sanitize";
+
+@keyframes wobble {
+  20% {
+    margin-left: 20px;
+  }
+
+  80% {
+    margin-left: -20px;
+  }
+}
+
+@keyframes up {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-1024px);
+  }
+}
+
+body {
+  height: 100vh;
+}
+
+.sea {
+  width: 100%;
+  height: 100%;
+  background-color: #2a2a72;
+  background-image: linear-gradient(380deg, #2a2a72, 85%, #009ffd);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  .bottom {
+    width: 100%;
+    height: 200px;
+    opacity: 0.8;
+    transform: translate(0, 50px);
+    position: relative;
+
+    svg {
+      width: 100%;
+      position: absolute;
+
+      &:nth-child(2) {
+        z-index: -1;
+        transform: translate(-200px, 0);
+      }
+    }
+  }
+}
+
+.bubbles {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 4;
+
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
+      inset 0 10px 30px 5px rgba(255, 255, 255, 0.4);
+    height: 20px;
+    width: 20px;
+    opacity: 0;
+
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        left: percentage(random(100) / 100);
+        top: percentage(random(100) / 100);
+        transform: scale(random(10) / 10);
+        animation: up ((random(5) * 2) + s) linear infinite,
+          wobble ((random(5) * 4) + s) ease-in-out infinite alternate;
+        animation-delay: random(5) + s;
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@charset 'UTF-8';
+
+@import "node_modules/sanitize.css/sanitize";
+
+body {
+  background-color: #fed550;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ice-cream {
+  width: 240px;
+  height: 350px;
+  background: #f982bf;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-top: 8px solid #ff98cc;
+  border-radius: 120px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  .glare {
+    width: 35px;
+    height: 70px;
+    background: #ff98cc;
+    position: relative;
+    left: 170px;
+    bottom: 20px;
+    transform: rotate(-38deg);
+    border-radius: 100%;
+  }
+
+  .face {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+
+    .eyes {
+      display: flex;
+      justify-content: space-between;
+      width: 145px;
+    }
+
+    .eye {
+      width: 18px;
+      height: 18px;
+      background: #ff2995;
+      position: relative;
+      border-bottom: 2px solid #ff98cc;
+      border-radius: 100%;
+
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5px;
+        height: 5px;
+        background: #fff;
+        border-radius: 100%;
+      }
+    }
+
+    .mouth {
+      width: 75px;
+      height: 25px;
+      background: #ff2995;
+      border-radius: 10px;
+      border-bottom: 2px solid #ff98cc;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+  }
+}
+
+.stick {
+  width: 60px;
+  height: 72px;
+  background: #ecaa7d;
+  border-top: 12px solid #db9e74;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}

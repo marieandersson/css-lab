@@ -1,0 +1,295 @@
+@charset 'UTF-8';
+
+@import "node_modules/sanitize.css/sanitize";
+
+$dark-brown: #8f361e;
+$brown: #cd6929;
+$light-brown: #e78a3a;
+
+$body-size: 10vw;
+
+body {
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.front-section {
+  height: (($body-size / 6) * 13);
+}
+
+.head {
+  width: (($body-size / 3) * 2);
+  height: (($body-size / 3) * 2);
+  background-color: $brown;
+  border-radius: 50%;
+  border-top-right-radius: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    content: "";
+    background-color: $light-brown;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &::after {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    content: "";
+    background-color: $dark-brown;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  .eye {
+    background-color: #fff;
+    height: ($body-size / 6);
+    width: ($body-size / 6);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      background: $dark-brown;
+      content: "";
+      position: absolute;
+      height: ($body-size / 12);
+      width: ($body-size / 12);
+      border-radius: 50%;
+    }
+  }
+
+  .ear {
+    position: absolute;
+    width: ($body-size / 3);
+    height: ($body-size / 3);
+    background: $dark-brown;
+    right: 0;
+    top: -($body-size / 6);
+    border-radius: 50%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      width: 50%;
+      height: 50%;
+      content: "";
+      background-color: $light-brown;
+      border-radius: 50%;
+    }
+  }
+}
+
+.arm {
+  width: (($body-size / 3) * 2);
+  height: ($body-size / 3);
+  background: linear-gradient(to right, #e78a3a 50%, $dark-brown 50%);
+  display: flex;
+  flex-direction: column;
+  margin-top: ($body-size / 3);
+  position: relative;
+  border-bottom-left-radius: ($body-size / 3);
+  border-bottom-right-radius: ($body-size / 3);
+
+  &::before {
+    content: "";
+    width: ($body-size / 3);
+    height: ($body-size / 6);
+    background: $brown;
+    position: absolute;
+    top: 0;
+    left: -($body-size / 3);
+    border-bottom-left-radius: ($body-size / 3);
+    border-bottom-right-radius: ($body-size / 3);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: ($body-size / 3);
+    width: ($body-size / 3);
+    background: $brown;
+    position: absolute;
+    top: -($body-size / 3);
+    right: 0;
+  }
+}
+
+.body {
+  width: $body-size;
+  height: $body-size;
+  background-color: $dark-brown;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .circle {
+    width: ($body-size / 2);
+    height: ($body-size / 2);
+    background: $light-brown;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .inner-circle {
+      width: ($body-size / 6);
+      height: ($body-size / 6);
+      background: $brown;
+      border-radius: 50%;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: ($body-size / 2);
+    height: ($body-size / 2);
+    background: $light-brown;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: $body-size;
+    height: $body-size;
+    background: $light-brown;
+    left: 0;
+    top: -($body-size / 2);
+    z-index: -1;
+    border-top-right-radius: $body-size;
+  }
+}
+
+.tail {
+  display: flex;
+  flex-direction: row;
+
+  .front {
+    background: $dark-brown;
+    width: $body-size;
+    height: ($body-size * 3);
+    border-top-left-radius: $body-size;
+    border-bottom-right-radius: $body-size;
+    display: flex;
+    align-items: center;
+
+    .triangle {
+      width: ($body-size / 3);
+      height: ($body-size / 3);
+      background: linear-gradient(
+        to bottom right,
+        $light-brown 50%,
+        transparent 50%
+      );
+    }
+
+    .s-line {
+      width: ($body-size / 3);
+      height: $body-size;
+      background: $brown;
+      position: relative;
+
+      .top {
+        width: (($body-size / 3) * 2);
+        height: (($body-size / 3) * 2);
+        background: $brown;
+        position: absolute;
+        left: 0;
+        top: -(($body-size / 3) * 2);
+        border-top-left-radius: (($body-size / 3) * 2);
+
+        &::after {
+          content: "";
+          width: ($body-size / 3);
+          height: ($body-size / 3);
+          background: $dark-brown;
+          position: absolute;
+          left: ($body-size / 3);
+          top: ($body-size / 3);
+          border-top-left-radius: ($body-size / 3);
+        }
+      }
+
+      .bottom {
+        width: (($body-size / 3) * 2);
+        height: (($body-size / 3) * 2);
+        background: $brown;
+        position: absolute;
+        left: -($body-size / 3);
+        bottom: -(($body-size / 3) * 2);
+        border-bottom-right-radius: (($body-size / 3) * 2);
+
+        &::after {
+          content: "";
+          width: ($body-size / 3);
+          height: ($body-size / 3);
+          background: $dark-brown;
+          position: absolute;
+          left: 0;
+          top: 0;
+          border-bottom-right-radius: ($body-size / 3);
+        }
+      }
+    }
+  }
+
+  .back {
+    background: $brown;
+    width: $body-size * 2;
+    height: $body-size * 2;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: "";
+      width: ((($body-size * 2)/ 3) * 2);
+      height: ((($body-size * 2)/ 3) * 2);
+      position: absolute;
+      border-radius: 50%;
+      background: $light-brown;
+    }
+
+    &::before {
+      content: "";
+      width: (($body-size * 2)/ 3);
+      height: (($body-size * 2)/ 3);
+      position: absolute;
+      border-radius: 50%;
+      background: $brown;
+      z-index: 2;
+    }
+  }
+}
